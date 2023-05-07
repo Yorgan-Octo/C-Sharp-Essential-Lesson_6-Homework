@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Task_2
+{
+    internal class Book
+    {
+
+        private List<string> books = new List<string>()
+        {
+            "Метро быстро доставляет меня на работу каждое утро.",
+            "Я предпочитаю ездить на велосипеде, чтобы избежать пробок.",
+            "Автобусы сейчас ездят с большими интервалами, нужно быть внимательнее к расписанию.",
+            "Комфортабельные поезда делают поездки на дальние расстояния приятными.",
+            "Мне всегда нравилось ездить на мотоцикле, это очень увлекательно.",
+            "Электрические самокаты очень удобны для перемещений в городе.",
+            "Такси - отличный выбор для тех, кто не хочет ездить на своей машине.",
+            "Легковой автомобиль - идеальный вариант для поездок с семьей.",
+            "Я всегда предпочитаю использовать общественный транспорт, это экологично и дешево.",
+            "Грузовые автомобили необходимы для перевозки товаров на дальние расстояния.",
+        };
+
+        public void FindNext(string str)
+        {
+            bool poisk = FindAndReplaceManager.FindNext(str, books);
+
+            if (poisk)
+            {
+                int index = books.IndexOf(str);
+                Console.WriteLine("ТАка строка е в книзі!");
+                Console.WriteLine($"Сторінка {index}: ");
+                Console.WriteLine(new String('-',50));
+                Console.WriteLine(books[index]);
+                Console.WriteLine(new String('-', 50));
+            }
+            else
+            {
+                Console.WriteLine(new String('-', 50));
+                Console.WriteLine("Такої строки нема!");
+                Console.WriteLine(new String('-', 50));
+            }
+
+        }
+    }
+}
